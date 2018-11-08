@@ -198,7 +198,9 @@ $( document ).ready(function() {
 
 function GerarGrafico(){
 
-    window.location.href = '/dispersao?id=8&var=6&var=2';
+   idgrafico = $("#slt").val();
+
+    window.location.href = '/dispersao?id=' + idgrafico + '&var=6&var=2#btn';
 
 }
 
@@ -265,7 +267,7 @@ function GerarGrafico(){
         <section id="tabelagrafico" class="wow fadeInUp">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 about-img">                         
+                    <div class="col-lg-4 about-img">                         
                         <select id="slt">
                            <option value="0">ESCOLHA O GRÁFICO</option>
                             <option value="1">BOX-PLOT</option>
@@ -329,13 +331,13 @@ function GerarGrafico(){
 
 </br>
 
-<button onclick="GerarGrafico();" type="button" class="btn btn-success">GERAR GRÁFICO</button>
-<p>ID DO GRAFICO PARA GERARA PARADA TODA {{ Nome }}.</p>
+<button id="btn" onclick="GerarGrafico();" type="button" class="btn btn-success">GERAR GRÁFICO</button>
+<!--<p>ID DO GRAFICO PARA GERARA PARADA TODA {{ Nome }}.</p>-->
                     </div>
 
                     <div class="col-lg-6 content">
                       
-                        <img src="/grafico.jpg" />
+                        <img src="{{ Nome }}" />
 
 
                     </div>
