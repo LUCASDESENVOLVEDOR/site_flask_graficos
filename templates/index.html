@@ -18,16 +18,18 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 
-<style>
+    <style>
+        .none {
 
- 
-.none {
+            display: none;
 
-display: none;
+        }
 
-}
+        .backcolor {
 
-</style>
+            background-color: #b5bbff;
+        }
+    </style>
 
 </head>
 
@@ -38,171 +40,390 @@ display: none;
 <script>
 
 
-$( document ).ready(function() {
+
+
+    $(document).ready(function () {
+
+
+        Retorno = RequestUrl("id");
+        var1 = RequestUrl("var1");
+        var2 = RequestUrl("var2");
+
+        if (Retorno != "") {
+
+            $("#slt").val(Retorno);
+
+
+            setTimeout(
+                function () {
+                    $('#slt').change();
+
+                     if (var1 == 1 ||var2 == 1  )
+                     $("#Respondente").click()
+           
+                     if (var1 == 2 ||var2 == 2  )
+                     $("#Imagem").click()
+
+                     if (var1 == 3 ||var2 == 3  )
+                     $("#Utilitario").click()
+
+                     if (var1 == 4 ||var2 == 4  )
+                     $("#Preco").click()
+
+                    if (var1 == 5 ||var2 == 5  )
+                     $("#Genero").click()
+
+                     if (var1 == 11||var2 == 11  )
+                     $("#EstadoCivil").click()
+
+                     if (var1 == 6 ||var2 == 6  )
+                     $("#Idade").click()
+              
+                     if (var1 == 7 ||var2 == 7  )
+                     $("#Filhos").click()
+
+                    if (var1 == 8 ||var2 == 8  )
+                     $("#Renda").click()
+
+                    if (var1 == 9 ||var2 == 9  )
+                     $("#Pequeno").click()    
+
+                    if (var1 == 10 ||var2 == 10  )
+                     $("#Prototipo").click()   
+
+                }, 1000);
+
+
+        }
+
+
+        function RequestUrl(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
 
 
 
-    $('#slt').change(function() {
-   
-            switch ($(':selected').val()){
 
-
-            //BOX-PLOT
-            case "0": alert("Informe um gráfico.");
-            $("#dvRespondente").addClass("none");
-                            $("#dvImagem").addClass("none");
-                            $("#dvUtilitario").addClass("none");
-                            $("#dvPreco").addClass("none");
-                            $("#dvGenero").addClass("none");
-                            $("#dvIdade").addClass("none");
-                            $("#dvFilhos").addClass("none");
-                            $("#dvRenda").addClass("none");
-                            $("#dvPrototipo").addClass("none");
-                            $("#dvPequeno").addClass("none");
-                            $("#dvEstadoCivil").addClass("none");
-                        break;
-
-
-            //BOX-PLOT
-            case "1":  $("#dvImagem").addClass("none");
-                            $("#dvUtilitario").addClass("none");
-                            $("#dvPreco").addClass("none");
-                            $("#dvGenero").addClass("none");
-                            $("#dvIdade").addClass("none");
-                            $("#dvFilhos").addClass("none");
-                            $("#dvRenda").addClass("none");
-                            $("#dvPrototipo").addClass("none");
-                            $("#dvPequeno").addClass("none");
-                            $("#dvEstadoCivil").addClass("none");
-                        $("#dvRespondente").removeClass("none");
-                        $("#dvImagem").removeClass("none");
-                        $("#dvUtilitario").removeClass("none");
-                        $("#dvPreco").removeClass("none");
-                        $("#dvGenero").removeClass("none");
-                        $("#dvIdade").removeClass("none");
-                        $("#dvFilhos").removeClass("none");
-                        $("#dvRenda").removeClass("none");
-                        $("#dvPrototipo").removeClass("none");
-                        break;
-
-            //HISTOGRAMA COM DENSIDADE
-                case "2":   
-                            $("#dvImagem").addClass("none");
-                            $("#dvUtilitario").addClass("none");
-                            $("#dvPreco").addClass("none");
-                            $("#dvGenero").addClass("none");
-                            $("#dvIdade").addClass("none");
-                            $("#dvFilhos").addClass("none");
-                            $("#dvRenda").addClass("none");
-                            $("#dvPrototipo").addClass("none");
-                            $("#dvPequeno").addClass("none");
-                            $("#dvEstadoCivil").addClass("none");
-                            $("#dvRespondente").removeClass("none");
-                            $("#dvImagem").removeClass("none");
-                            $("#dvUtilitario").removeClass("none");
-                            $("#dvPreco").removeClass("none");
-                            $("#dvGenero").removeClass("none");
-                            $("#dvIdade").removeClass("none");
-                            $("#dvFilhos").removeClass("none");
-                            $("#dvRenda").removeClass("none");
-                            $("#dvPrototipo").removeClass("none");
-                            break;
+        $('#slt').change(function () {
 
 
 
-            //BARRAS COM MÉDIAS
-            case "3":    $("#dvImagem").addClass("none");
-                            $("#dvUtilitario").addClass("none");
-                            $("#dvPreco").addClass("none");
-                            $("#dvGenero").addClass("none");
-                            $("#dvIdade").addClass("none");
-                            $("#dvFilhos").addClass("none");
-                            $("#dvRenda").addClass("none");
-                            $("#dvPrototipo").addClass("none");
-                            $("#dvPequeno").addClass("none");
-                            $("#dvEstadoCivil").addClass("none");
-                            $("#dvRespondente").removeClass("none");
-                            $("#dvImagem").removeClass("none");
-                            $("#dvUtilitario").removeClass("none");
-                            $("#dvPreco").removeClass("none");
-                            $("#dvGenero").removeClass("none");
-                            $("#dvIdade").removeClass("none");
-                            $("#dvFilhos").removeClass("none");
-                            $("#dvRenda").removeClass("none");
-                            $("#dvPrototipo").removeClass("none");
-                            $("#dvPequeno").removeClass("none");
-                            $("#dvEstadoCivil").removeClass("none");
-                            break;
 
-            //BOX-PLOT CATEGORIZADO
-            case "4":   
-            $("#dvImagem").addClass("none");
-                            $("#dvUtilitario").addClass("none");
-                            $("#dvPreco").addClass("none");
-                            $("#dvGenero").addClass("none");
-                            $("#dvIdade").addClass("none");
-                            $("#dvFilhos").addClass("none");
-                            $("#dvRenda").addClass("none");
-                            $("#dvPrototipo").addClass("none");
-                            $("#dvPequeno").addClass("none");
-                            $("#dvEstadoCivil").addClass("none"); 
-                            $("#dvRespondente").removeClass("none");
-                            $("#dvImagem").removeClass("none");
-                            $("#dvUtilitario").removeClass("none");
-                            $("#dvPreco").removeClass("none");
-                            $("#dvGenero").removeClass("none");
-                            $("#dvIdade").removeClass("none");
-                            $("#dvFilhos").removeClass("none");
-                            $("#dvRenda").removeClass("none");
-                            $("#dvPrototipo").removeClass("none");
-                            $("#dvPequeno").removeClass("none");
-                            $("#dvEstadoCivil").removeClass("none");
-                            break;
+            switch ($(':selected').val()) {
 
 
-            //DISPERSÃO COM HISTOGRAMA
-            case "5":      $("#dvImagem").addClass("none");
-                            $("#dvUtilitario").addClass("none");
-                            $("#dvPreco").addClass("none");
-                            $("#dvGenero").addClass("none");
-                            $("#dvIdade").addClass("none");
-                            $("#dvFilhos").addClass("none");
-                            $("#dvRenda").addClass("none");
-                            $("#dvPrototipo").addClass("none");
-                            $("#dvPequeno").addClass("none");
-                            $("#dvEstadoCivil").addClass("none");
-                            $("#dvRespondente").removeClass("none");
-                            $("#dvImagem").removeClass("none");
-                            $("#dvUtilitario").removeClass("none");
-                            $("#dvPreco").removeClass("none");
-                            $("#dvGenero").removeClass("none");
-                            $("#dvIdade").removeClass("none");
-                            $("#dvFilhos").removeClass("none");
-                            $("#dvRenda").removeClass("none");
-                            $("#dvPrototipo").removeClass("none");            
-                            break;
+                //BOX-PLOT
+                case "0": alert("Informe um gráfico.");
+                    $("#dvRespondente").addClass("none");
+                    $("#dvImagem").addClass("none");
+                    $("#dvUtilitario").addClass("none");
+                    $("#dvPreco").addClass("none");
+                    $("#dvGenero").addClass("none");
+                    $("#dvIdade").addClass("none");
+                    $("#dvFilhos").addClass("none");
+                    $("#dvRenda").addClass("none");
+                    $("#dvPrototipo").addClass("none");
+                    $("#dvPequeno").addClass("none");
+                    $("#dvEstadoCivil").addClass("none");
+                    break;
 
-            default:
+
+                //BOX-PLOT
+                case "1": $("#dvImagem").addClass("none");
+                    $("#dvUtilitario").addClass("none");
+                    $("#dvPreco").addClass("none");
+                    $("#dvGenero").addClass("none");
+                    $("#dvIdade").addClass("none");
+                    $("#dvFilhos").addClass("none");
+                    $("#dvRenda").addClass("none");
+                    $("#dvPrototipo").addClass("none");
+                    $("#dvPequeno").addClass("none");
+                    $("#dvEstadoCivil").addClass("none");
+                    $("#dvRespondente").removeClass("none");
+                    $("#dvImagem").removeClass("none");
+                    $("#dvUtilitario").removeClass("none");
+                    $("#dvPreco").removeClass("none");
+                    $("#dvGenero").removeClass("none");
+                    $("#dvIdade").removeClass("none");
+                    $("#dvFilhos").removeClass("none");
+                    $("#dvRenda").removeClass("none");
+                    $("#dvPrototipo").removeClass("none");
+                    break;
+
+                //HISTOGRAMA COM DENSIDADE
+                case "2":
+                    $("#dvImagem").addClass("none");
+                    $("#dvUtilitario").addClass("none");
+                    $("#dvPreco").addClass("none");
+                    $("#dvGenero").addClass("none");
+                    $("#dvIdade").addClass("none");
+                    $("#dvFilhos").addClass("none");
+                    $("#dvRenda").addClass("none");
+                    $("#dvPrototipo").addClass("none");
+                    $("#dvPequeno").addClass("none");
+                    $("#dvEstadoCivil").addClass("none");
+                    $("#dvRespondente").removeClass("none");
+                    $("#dvImagem").removeClass("none");
+                    $("#dvUtilitario").removeClass("none");
+                    $("#dvPreco").removeClass("none");
+                    $("#dvGenero").removeClass("none");
+                    $("#dvIdade").removeClass("none");
+                    $("#dvFilhos").removeClass("none");
+                    $("#dvRenda").removeClass("none");
+                    $("#dvPrototipo").removeClass("none");
+                    break;
+
+
+
+                //BARRAS COM MÉDIAS
+                case "3": $("#dvImagem").addClass("none");
+                    $("#dvUtilitario").addClass("none");
+                    $("#dvPreco").addClass("none");
+                    $("#dvGenero").addClass("none");
+                    $("#dvIdade").addClass("none");
+                    $("#dvFilhos").addClass("none");
+                    $("#dvRenda").addClass("none");
+                    $("#dvPrototipo").addClass("none");
+                    $("#dvPequeno").addClass("none");
+                    $("#dvEstadoCivil").addClass("none");
+                    $("#dvRespondente").removeClass("none");
+                    $("#dvImagem").removeClass("none");
+                    $("#dvUtilitario").removeClass("none");
+                    $("#dvPreco").removeClass("none");
+                    $("#dvGenero").removeClass("none");
+                    $("#dvIdade").removeClass("none");
+                    $("#dvFilhos").removeClass("none");
+                    $("#dvRenda").removeClass("none");
+                    $("#dvPrototipo").removeClass("none");
+                    $("#dvPequeno").removeClass("none");
+                    $("#dvEstadoCivil").removeClass("none");
+                    break;
+
+                //BOX-PLOT CATEGORIZADO
+                case "4":
+                    $("#dvImagem").addClass("none");
+                    $("#dvUtilitario").addClass("none");
+                    $("#dvPreco").addClass("none");
+                    $("#dvGenero").addClass("none");
+                    $("#dvIdade").addClass("none");
+                    $("#dvFilhos").addClass("none");
+                    $("#dvRenda").addClass("none");
+                    $("#dvPrototipo").addClass("none");
+                    $("#dvPequeno").addClass("none");
+                    $("#dvEstadoCivil").addClass("none");
+                    $("#dvRespondente").removeClass("none");
+                    $("#dvImagem").removeClass("none");
+                    $("#dvUtilitario").removeClass("none");
+                    $("#dvPreco").removeClass("none");
+                    $("#dvGenero").removeClass("none");
+                    $("#dvIdade").removeClass("none");
+                    $("#dvFilhos").removeClass("none");
+                    $("#dvRenda").removeClass("none");
+                    $("#dvPrototipo").removeClass("none");
+                    $("#dvPequeno").removeClass("none");
+                    $("#dvEstadoCivil").removeClass("none");
+                    break;
+
+
+                //DISPERSÃO COM HISTOGRAMA
+                case "5": $("#dvImagem").addClass("none");
+                    $("#dvUtilitario").addClass("none");
+                    $("#dvPreco").addClass("none");
+                    $("#dvGenero").addClass("none");
+                    $("#dvIdade").addClass("none");
+                    $("#dvFilhos").addClass("none");
+                    $("#dvRenda").addClass("none");
+                    $("#dvPrototipo").addClass("none");
+                    $("#dvPequeno").addClass("none");
+                    $("#dvEstadoCivil").addClass("none");
+                    $("#dvRespondente").removeClass("none");
+                    $("#dvImagem").removeClass("none");
+                    $("#dvUtilitario").removeClass("none");
+                    $("#dvPreco").removeClass("none");
+                    $("#dvGenero").removeClass("none");
+                    $("#dvIdade").removeClass("none");
+                    $("#dvFilhos").removeClass("none");
+                    $("#dvRenda").removeClass("none");
+                    $("#dvPrototipo").removeClass("none");
+                    break;
+
+                default:
                     alert('Não informado.');
 
 
             }
 
 
-            });
+        });
 
 
 
 
-});
+    });
 
-function GerarGrafico(){
+    function GerarGrafico() {
 
-   idgrafico = $("#slt").val();
+        idgrafico = $("#slt").val();
 
-    window.location.href = '/dispersao?id=' + idgrafico + '&var=6&var=2#btn';
+        //VALIDA QUANTIDADE DE CHECK.
+        totalcheck = colunas();
+        colunasescolhidas = ColunasSelecionadas();
 
-}
+        if (idgrafico == "1") //BOX-PLOT
+        {
+            if (totalcheck == 0) {
+                alert("Informe 1 coluna");
+                return;
+            }
+            else {
+
+                if (totalcheck > 1) {
+                    alert("Informe apenas 1 coluna.");
+                    return;
+                }
+            }
+        }
+
+
+        if (idgrafico == "2") //HISTOGRAMA DE DENSIDADE
+        {
+            if (totalcheck == 0  ) {
+                alert("Informe 1 coluna");
+                return;
+            }
+            else {
+
+                if (totalcheck > 1) {
+                    alert("Informe apenas 1 coluna.");
+                    return;
+                }
+            }
+        }
+
+        if (idgrafico == "3" || idgrafico == "4"  ||idgrafico == "5"  ) //BARRAS COM MÉDIAS ||#BOX-PLOT CATEGORIZADO || #Dispersão com densidade
+        {
+            if (totalcheck == 0 ||totalcheck == 1 ) {
+                alert("Informe 2 colunas");
+                return;
+            }
+            else {
+
+                if (totalcheck > 2) {
+                    alert("Informe apenas 2 colunas.");
+                    return;
+                }
+            }
+        }  
+        window.location.href = '/dispersao?id=' + idgrafico + '&var1=' + colunasescolhidas.split(',')[0] + '&var2=' + colunasescolhidas.split(',')[1] + '#btn';
+
+    }
+
+
+    function colunas() {
+
+        count = 0;
+
+
+        if ($('#Respondente').is(":checked"))
+            count = count + 1;
+
+
+        if ($('#Imagem').is(":checked"))
+            count = count + 1;
+
+        if ($('#Utilitario').is(":checked"))
+            count = count + 1;
+
+        if ($('#Preco').is(":checked"))
+            count = count + 1;
+
+        if ($('#Genero').is(":checked"))
+            count = count + 1;
+
+       if ($('#EstadoCivil').is(":checked"))
+            count = count + 1;
+
+
+        if ($('#Idade').is(":checked"))
+            count = count + 1;
+
+        if ($('#Filhos').is(":checked"))
+            count = count + 1;
+
+        if ($('#Renda').is(":checked"))
+            count = count + 1;
+
+        if ($('#Pequeno').is(":checked"))
+            count = count + 1;
+
+        if ($('#Prototipo').is(":checked"))
+            count = count + 1;
+
+        return count;
+
+    }
+
+
+    function ColunasSelecionadas() {
+
+        colunasSelec = "";
+
+        if ($('#Respondente').is(":checked"))
+            colunasSelec = colunasSelec + "1" + ",";
+
+
+        if ($('#Imagem').is(":checked"))
+            colunasSelec = colunasSelec + "2" + ",";
+
+
+        if ($('#Utilitario').is(":checked"))
+            colunasSelec = colunasSelec + "3" + ",";
+
+
+        if ($('#Preco').is(":checked"))
+            colunasSelec = colunasSelec + "4" + ",";
+
+
+        if ($('#Genero').is(":checked"))
+            colunasSelec = colunasSelec + "5" + ",";
+
+
+        if ($('#Idade').is(":checked"))
+            colunasSelec = colunasSelec + "6" + ",";
+
+
+        if ($('#Filhos').is(":checked"))
+            colunasSelec = colunasSelec + "7" + ",";
+
+
+        if ($('#Renda').is(":checked"))
+            colunasSelec = colunasSelec + "8" + ",";
+
+        
+        if ($('#Pequeno').is(":checked"))
+            colunasSelec = colunasSelec + "9" + ",";
+
+        if ($('#Prototipo').is(":checked"))
+            colunasSelec = colunasSelec + "10" + ",";
+
+        if ($('#EstadoCivil').is(":checked"))
+            colunasSelec = colunasSelec + "11" + ",";
+
+
+
+        colunasSelec = colunasSelec + ";";
+        colunasSelec = colunasSelec.replace(",;", "");
+
+        return colunasSelec;
+
+
+    }
+
+
+
 
 </script>
 
@@ -217,11 +438,21 @@ function GerarGrafico(){
             <div class="contact-info float-left">
             </div>
             <div class="social-links float-right">
-                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="#" class="twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" class="facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="#" class="instagram">
+                    <i class="fa fa-instagram"></i>
+                </a>
+                <a href="#" class="google-plus">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                <a href="#" class="linkedin">
+                    <i class="fa fa-linkedin"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -230,15 +461,25 @@ function GerarGrafico(){
         <div class="container">
 
             <div id="logo" class="pull-left">
-                <a href="#body"><img src="img/logo.jpg" alt="" title="" width="70" height="60" /></a>
+                <a href="#body">
+                    <img src="img/logo.jpg" alt="" title="" width="70" height="60" />
+                </a>
             </div>
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#body">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="#tabelagrafico">Tabelas/Gráficos</a></li>
-                    <li><a href="#footer">Rodapé</a></li>
+                    <li class="menu-active">
+                        <a href="#body">Início</a>
+                    </li>
+                    <li>
+                        <a href="sobre.html">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="#tabelagrafico">Tabelas/Gráficos</a>
+                    </li>
+                    <li>
+                        <a href="#footer">Rodapé</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -248,7 +489,9 @@ function GerarGrafico(){
     <section id="intro">
 
         <div class="intro-content">
-            <h2>Jair  <span>Messias</span><br>Bolsonaro</h2>
+            <h2>Jair
+                <span>Messias</span>
+                <br>Bolsonaro</h2>
             <div>
                 <a href="#tabelagrafico" class="btn-get-started scrollto">Tabelas/Gráficos</a>
                 <a href="#footer" class="btn-projects scrollto">Rodapé</a>
@@ -267,76 +510,76 @@ function GerarGrafico(){
         <section id="tabelagrafico" class="wow fadeInUp">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 about-img">                         
+                    <div class="col-lg-4 about-img">
                         <select id="slt">
-                           <option value="0">ESCOLHA O GRÁFICO</option>
+                            <option value="0">ESCOLHA O GRÁFICO</option>
                             <option value="1">BOX-PLOT</option>
                             <option value="2">HISTOGRAMA COM DENSIDADE</option>
                             <option value="3">BARRAS COM MÉDIAS</option>
                             <option value="4">BOX-PLOT CATEGORIZADO</option>
-                            <option value="5">DISPERSÃO COM HISTOGRAMA</option>
-                          </select>
+                            <option value="5">DISPERSÃO COM DENSIDADE</option>
+                        </select>
 
 
-                          <br/>
-                          <br/>
+                        <br/>
+                        <br/>
 
-                       <!-- Default unchecked -->
-<div id="dvRespondente" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Respondente">
-    <label class="custom-control-label" for="Respondente">Respondente</label>
-</div>
+                        <!-- Default unchecked -->
+                        <div id="dvRespondente" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Respondente">
+                            <label class="custom-control-label" for="Respondente">Respondente</label>
+                        </div>
 
-<div id="dvImagem" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Imagem">
-    <label class="custom-control-label" for="Imagem">Imagem</label>
-</div>
-<div id="dvUtilitario" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Utilitario">
-    <label class="custom-control-label" for="Utilitario">Utilitario</label>
-</div>
-<div id="dvPreco" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Preco">
-    <label class="custom-control-label" for="Preco">Preco</label>
-</div>
-<div id="dvGenero" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Genero">
-    <label class="custom-control-label" for="Genero">Genero</label>
-</div>
-<div id="dvEstadoCivil" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="EstadoCivil">
-    <label class="custom-control-label" for="EstadoCivil">EstadoCivil</label>
-</div>
-<div id="dvIdade" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Idade">
-    <label class="custom-control-label" for="Idade">Idade</label>
-</div>
-<div id="dvFilhos" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Filhos">
-    <label class="custom-control-label" for="Filhos">Filhos</label>
-</div>
-<div id="dvRenda" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Renda">
-    <label class="custom-control-label" for="Renda">Renda</label>
-</div>
-<div id="dvPequeno" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Pequeno">
-    <label class="custom-control-label" for="Pequeno">Pequeno</label>
-</div>
-<div id="dvPrototipo" class="none custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Prototipo">
-    <label class="custom-control-label" for="Prototipo">Prototipo</label>
-</div>
+                        <div id="dvImagem" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Imagem">
+                            <label class="custom-control-label" for="Imagem">Imagem</label>
+                        </div>
+                        <div id="dvUtilitario" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Utilitario">
+                            <label class="custom-control-label" for="Utilitario">Utilitario</label>
+                        </div>
+                        <div id="dvPreco" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Preco">
+                            <label class="custom-control-label" for="Preco">Preco</label>
+                        </div>
+                        <div id="dvGenero" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Genero">
+                            <label class="custom-control-label" for="Genero">Genero</label>
+                        </div>
+                        <div id="dvEstadoCivil" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="EstadoCivil">
+                            <label class="custom-control-label" for="EstadoCivil">EstadoCivil</label>
+                        </div>
+                        <div id="dvIdade" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Idade">
+                            <label class="custom-control-label" for="Idade">Idade</label>
+                        </div>
+                        <div id="dvFilhos" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Filhos">
+                            <label class="custom-control-label" for="Filhos">Filhos</label>
+                        </div>
+                        <div id="dvRenda" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Renda">
+                            <label class="custom-control-label" for="Renda">Renda</label>
+                        </div>
+                        <div id="dvPequeno" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Pequeno">
+                            <label class="custom-control-label" for="Pequeno">Pequeno</label>
+                        </div>
+                        <div id="dvPrototipo" class="none custom-control custom-checkbox backcolor">
+                            <input type="checkbox" class="custom-control-input" id="Prototipo">
+                            <label class="custom-control-label" for="Prototipo">Prototipo</label>
+                        </div>
 
 
-</br>
+                        </br>
 
-<button id="btn" onclick="GerarGrafico();" type="button" class="btn btn-success">GERAR GRÁFICO</button>
-<!--<p>ID DO GRAFICO PARA GERARA PARADA TODA {{ Nome }}.</p>-->
+                        <button id="btn" onclick="GerarGrafico();" type="button" class="btn btn-success">GERAR GRÁFICO</button>
+                        <!--<p>ID DO GRAFICO PARA GERARA PARADA TODA {{ Nome }}.</p>-->
                     </div>
 
                     <div class="col-lg-6 content">
-                      
+
                         <img src="{{ Nome }}" />
 
 
@@ -351,15 +594,20 @@ function GerarGrafico(){
     <footer id="footer">
         <div class="container">
             <div class="copyright">
-                &copy; Lucas <strong>Aragão</strong>. Todos os direitos reservados para o meu <strong>RA</strong>
+                &copy; Lucas
+                <strong>Aragão</strong>. Todos os direitos reservados para o meu
+                <strong>RA</strong>
             </div>
             <div class="credits">
-                Feito por <a href="#">Lucas</a>
+                Feito por
+                <a href="#">Lucas</a>
             </div>
         </div>
     </footer>
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="#" class="back-to-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/jquery/jquery-migrate.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
